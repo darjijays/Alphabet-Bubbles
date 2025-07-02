@@ -14,7 +14,10 @@ body {
     color: white;
 }
 button {
-    height: 0%;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
 }
 .b {
     height: 100px;

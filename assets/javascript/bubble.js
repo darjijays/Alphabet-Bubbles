@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
+  alert(
+    `ready for some fun? 🕹️🕹️🕹️\nCorrect Keystroke: +1.0\nIncorrect Keystroke: -0.25`,
+  );
   let time = Math.floor(Math.random() * 4000);
   setRandomTimeout(time);
 });
@@ -55,7 +58,7 @@ function observer(entries) {
     Object.values(letterMap).forEach((letter) => {
       intersectionObservation.unobserve(letter);
     });
-    alert(`Game Over. Your score was ${s}`);
+    alert(`😿🥺🥺🥺\nawwww! game over \nbut Your score was ${s} \n💃💃💃💃`);
     window.location.reload();
   } else {
     life -= removals.length;
@@ -65,4 +68,9 @@ function observer(entries) {
 function myFunction() {
   var element = document.body;
   element.classList.toggle("dark-mode");
+  if (document.body.className === "dark-mode") {
+    document.querySelector("button").innerText = `☀︎`;
+  } else {
+    document.querySelector("button").innerText = `⏾`;
+  }
 }
