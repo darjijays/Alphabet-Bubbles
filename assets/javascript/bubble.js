@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   alert(
-    `ready for some fun? 🕹️🕹️🕹️\nCorrect Keystroke: +1.0\nIncorrect Keystroke: -0.25`,
+    `ready for some fun??? \n🕹️🕹️👻👻👻\nCorrect Keystroke: +1.0\nIncorrect Keystroke: -0.25`,
   );
   let time = Math.floor(Math.random() * 4000);
   setRandomTimeout(time);
@@ -8,7 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
 let life = 3;
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let letterMap = {};
-let intersectionObservation = new IntersectionObserver(observer);
+let intersectionObservation = new IntersectionObserver(observer, {
+  threshold: [0],
+});
 function setRandomTimeout(time) {
   setTimeout(() => {
     let p = document.createElement("div");
@@ -19,16 +21,18 @@ function setRandomTimeout(time) {
     } while (letter in letterMap);
     letterMap[letter] = p;
     p.innerText = `${letter}`;
-    p.style.animationDuration = 10 - Math.floor(s / 10) + "s";
+    p.style.animationDuration = 10 - Math.floor(s / 5) + "s";
     p.style.left = 100 + Math.random() * 1000 + "px";
     let x;
     do {
       x = Math.floor(Math.random() * 16777215).toString(16);
-    } while (String(x) === "FFFFFF" && String(x) === "000000");
+    } while (x.toUpperCase() === "FFFFFF" || x.toUpperCase() === "000000");
 
     p.style.backgroundColor = "#" + x;
-    intersectionObservation.observe(p);
     document.body.append(p);
+    requestAnimationFrame(() => {
+      intersectionObservation.observe(p);
+    });
     setRandomTimeout(Math.max(500, Math.random() * 4000 - Math.floor(s / 20)));
   }, time);
 }
@@ -58,7 +62,16 @@ function observer(entries) {
     Object.values(letterMap).forEach((letter) => {
       intersectionObservation.unobserve(letter);
     });
-    alert(`😿🥺🥺🥺\nawwww! game over \nbut Your score was ${s} \n💃💃💃💃`);
+    if (s >= 10) {
+      alert(
+        `your score is ${s}, give $1000000 to Jay to get big score\n😌😌😌😌😌😌`,
+      );
+    } else {
+      alert(
+        `😿😿😿🥺🥺🥺\nawwww! game over \nand your score is ${s} \nPay $100 to Jay to get higher score💃💃💃💃`,
+      );
+    }
+
     window.location.reload();
   } else {
     life -= removals.length;
@@ -67,10 +80,10 @@ function observer(entries) {
 }
 function myFunction() {
   var element = document.body;
-  element.classList.toggle("dark-mode");
-  if (document.body.className === "dark-mode") {
-    document.querySelector("button").innerText = `☀︎`;
-  } else {
+  element.classList.toggle("light-mode");
+  if (document.body.className === "light-mode") {
     document.querySelector("button").innerText = `⏾`;
+  } else {
+    document.querySelector("button").innerText = `☀︎`;
   }
 }
