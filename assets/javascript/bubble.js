@@ -21,7 +21,7 @@ function setRandomTimeout(time) {
     } while (letter in letterMap);
     letterMap[letter] = p;
     p.innerText = `${letter}`;
-    p.style.animationDuration = Math.max(0.7, 8 - Math.floor(s / 5)) + "s";
+    p.style.animationDuration = Math.max(0.7, 6 - Math.floor(s / 5)) + "s";
     p.style.left = 100 + Math.random() * 1000 + "px";
     let x;
     do {
