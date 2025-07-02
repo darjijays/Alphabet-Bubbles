@@ -62,13 +62,13 @@ function observer(entries) {
     Object.values(letterMap).forEach((letter) => {
       intersectionObservation.unobserve(letter);
     });
-    if (s >= 10) {
+    if (s >= 15) {
       alert(
-        `your score is ${s}, give $1000000 to Jay to get big score\n😌😌😌😌😌😌`,
+        `your score is ${s}, you are quite good at it!\n💃💃💃💃\n😌😌😌😌😌😌`,
       );
     } else {
       alert(
-        `😿😿😿🥺🥺🥺\nawwww! game over \nand your score is ${s} \nPay $100 to Jay to get higher score💃💃💃💃`,
+        `😿😿😿🥺🥺🥺\nawwww! game over \nand your score is ${s} \ntry again ? may be!`,
       );
     }
 
